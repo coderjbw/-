@@ -1,0 +1,22 @@
+<view>
+<!-- maptar -->
+  <view class="search-bar">
+    <view class="selectcity" bindtap="cityselect">
+    {{city}} ▾<text class="split">\</text>
+    </view>
+    <input class="input" bindinput="bindInput" placeholder="想去哪？" focus/>
+  </view>
+<!-- 城市选择列表 -->
+<view class="cityselect" hidden="{{isshowcityselect}}">
+  <view class="currentcity">当前定位城市：{{city}}</view>
+  <view class="hotcity">热门城市</view>
+  <view class="hotcityitems">
+    <view class="hotcityitem" wx:for="{{hotcity}}" wx:key='index' data-name="{{item.fullname}}" bindtap="handlecity">{{item.name}}</view>
+  </view>
+
+    <view wx:for="{{alpcity}}" wx:key='index'>
+      <view class="cityalp">{{index}}</view>
+      <view class="cityname" wx:for="{{alpcity[index]}}" wx:key="index" data-name="{{item.fullname}}" bindtap="handlecity">{{item.fullname}}</view>
+    </view>
+  </view>
+</view>

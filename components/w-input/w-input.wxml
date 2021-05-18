@@ -1,0 +1,7 @@
+<!--components/w-input/w-input.wxml-->
+<view class="section">
+ <input bindinput="bindInput" placeholder="搜索" focus/>
+</view>
+<view bindtouchstart="bindSearch" data-keywords="{{i.name}}" class="text_box" wx:for="{{tips}}" wx:for-item="i" wx:key='index'>
+  {{i.name}}
+</view>
