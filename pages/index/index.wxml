@@ -8,6 +8,7 @@
   </view>
 <!-- 城市选择列表 -->
 <view class="cityselect" hidden="{{isshowcityselect}}">
+  <scroll-view scroll-y='true' scroll-into-view="{{scrollalp}}" style="height:100vh" scroll-with-animation='true' enable-back-to-top="true">
   <view class="currentcity">当前定位城市：{{city}}</view>
   <view class="hotcity">热门城市</view>
   <view class="hotcityitems">
@@ -15,15 +16,18 @@
   </view>
 
     <view wx:for="{{alpcity}}" wx:key='index'>
-      <view class="cityalp">{{index}}</view>
+      <view class="cityalp" id="{{index}}">{{index}}</view>
       <view class="cityname" wx:for="{{alpcity[index]}}" wx:key="index" data-name="{{item.fullname}}" bindtap="handlecity">{{item.fullname}}</view>
     </view>
-
+  </scroll-view>
     <view class="sortalp">
-      <view class="sortalpitem" wx:for="{{alp}}" wx:key='index' >{{item}}</view>
+      <view class="sortalpitem" wx:for="{{alp}}" wx:key='index'  data-name="{{item}}"    bindtouchstart="touchstart" bindtouchend="touchend" bindtouchmove="touchmove" id="{{item}}">{{item}}</view>
     </view>
-  </view>
+  </view> 
+  <view class="showalp" hidden="{{isshowalp}}">{{showalp}}</view>
 </view>
+
 <!-- <view >
   <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" show-compass></map>
 </view> -->
+

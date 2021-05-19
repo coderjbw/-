@@ -11,7 +11,10 @@ Page({
     longitude:'',
     latitude:'',
     markers:[],
-    alp:['★','A','B','C','D','E',"E","F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"]
+    alp:['★','A','B','C','D',"E","F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"],
+    showalp:'',
+    isshowalp:true,
+    scrollalp:''
   },
   onLoad: function() {
     var that = this;
@@ -87,5 +90,33 @@ Page({
     var that = this;
     that.showMarkerInfo(markersData,id);
     that.changeMarkerColor(markersData,id);
+  },
+  touchstart(e){
+    // console.log(e)
+    const alpitem = e.currentTarget.dataset.name
+    this.setData({
+      showalp:alpitem,
+      isshowalp:false
+    })
+  },
+  touchend(e){
+    // console.log(e)
+    this.setData({
+      isshowalp:true,
+      scrollalp:e.currentTarget.id
+    })
+    // console.log(this.data.scrollalp)
+  },
+  touchmove(e){
+    console.log(e)
+    var y = e.touches[0].clientY;
+    var offtop = e.currentTarget.offsetTop;
+    if(y>offtop){
+      var num = parseInt(((y-offtop)/12)-2)
+      console.log(num)
+      this.setData({
+        showalp:this.data.alp[num]
+      })
+    }
   }
 })
