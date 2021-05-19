@@ -4,7 +4,7 @@
     <view class="selectcity" bindtap="cityselect">
     {{city}} ▾<text class="split">\</text>
     </view>
-    <input class="input" bindinput="bindInput" placeholder="想去哪？" focus/>
+    <input class="input1" bindinput="bindInput" placeholder="想去哪？" focus/>
   </view>
 <!-- 城市选择列表 -->
 <view class="cityselect" hidden="{{isshowcityselect}}">
@@ -18,5 +18,12 @@
       <view class="cityalp">{{index}}</view>
       <view class="cityname" wx:for="{{alpcity[index]}}" wx:key="index" data-name="{{item.fullname}}" bindtap="handlecity">{{item.fullname}}</view>
     </view>
+
+    <view class="sortalp">
+      <view class="sortalpitem" wx:for="{{alp}}" wx:key='index' >{{item}}</view>
+    </view>
   </view>
 </view>
+<!-- <view >
+  <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" show-compass></map>
+</view> -->
