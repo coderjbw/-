@@ -14,7 +14,8 @@ Page({
     alp:['★','A','B','C','D',"E","F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"],
     showalp:'',
     isshowalp:true,
-    scrollalp:''
+    scrollalp:'',
+    isshowmap:false
   },
   onLoad: function() {
     var that = this;
@@ -75,7 +76,8 @@ Page({
   },
   cityselect(){
     this.setData({
-      isshowcityselect:!this.data.isshowcityselect
+      isshowcityselect:!this.data.isshowcityselect,
+      
     })
   },
   handlecity(e){
@@ -96,14 +98,16 @@ Page({
     const alpitem = e.currentTarget.dataset.name
     this.setData({
       showalp:alpitem,
-      isshowalp:false
+      isshowalp:false,
+      
     })
   },
   touchend(e){
     // console.log(e)
     this.setData({
       isshowalp:true,
-      scrollalp:e.currentTarget.id
+      scrollalp:e.currentTarget.id,
+      
     })
     // console.log(this.data.scrollalp)
   },
@@ -112,7 +116,7 @@ Page({
     var y = e.touches[0].clientY;
     var offtop = e.currentTarget.offsetTop;
     if(y>offtop){
-      var num = parseInt(((y-offtop)/12)-2)
+      var num = parseInt(((y-offtop)/16))
       console.log(num)
       this.setData({
         showalp:this.data.alp[num]

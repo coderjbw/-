@@ -27,7 +27,7 @@
   <view class="showalp" hidden="{{isshowalp}}">{{showalp}}</view>
 </view>
 
-<!-- <view >
+<view class="showmap" hidden="{{isshowmap}}">
   <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" show-compass></map>
-</view> -->
+</view>
 
